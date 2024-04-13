@@ -1,0 +1,215 @@
+@import "./common/global", "./common/variables", "./common/animations", "./common/mixins";
+
+header {
+    padding-top: 3.75rem;
+    .container {
+        @include default;
+        a {
+            @include hue-rotate(195deg);
+            img {
+                width: 6.125rem;
+                height: 3.5rem;
+            }
+        }
+    }
+}
+.coming {
+    @include default;
+    .coming-holder {
+        .coming-text {
+            width: calc(60%);
+            h1 {
+                padding: 6.25rem 0 1.25rem 0;
+            }
+            .wave-image {
+                background-image: url(../assets/wavy-shape.png);
+                height: 1.25rem;
+                background-size: 40.313rem 1.25rem;
+                animation: wavy-motion 15s linear infinite;
+                margin: 1.563rem 0;
+                @include hue-rotate(185deg);
+            }
+            .subtitle {
+                font-size: $main-font-size * 1.5;
+                font-weight: $main-font-weight * 7;
+                padding-top: 0.938rem;
+                color: #ffb078;
+                letter-spacing: 0.2rem;
+            }
+            .coming-form {
+                margin-top: 3.75rem;
+                .arrow {
+                    width: 2.125rem;
+                    height: 3.125rem;
+                    @include hue-rotate(185deg);
+                    transition: transform 0.5s ease;
+                    &:hover {
+                        transform: translateX(20px);
+                    }
+                }
+                input {
+                    font-family: $main-font;
+                    padding: 1.25rem 1.5rem;
+                    flex-grow: 1;
+                    margin: 0 1rem;
+                    outline: none;
+                    border: 0.063rem solid $main-text-color;
+                    border-radius: 0.625rem;
+                    box-shadow: 0 0 1.875rem 0.438rem $main-text-color;
+                    transition: 0.5s ease;
+                    &::placeholder {
+                        color: $main-text-color;
+                    }
+                }
+                button {
+                    padding: 1.563rem 1.5rem;
+                    border-radius: 0.625rem;
+                    color: #fff;
+                    background-color: $main-text-color;
+                    font-weight: $main-font-weight * 6;
+                    letter-spacing: 0.25rem;
+                    cursor: pointer;
+                    border: none;
+                    &:hover {
+                        animation: buttonHover 1s infinite;
+                        background-color: $main-hover-color;
+                    }
+                }
+            }
+        }
+        .coming-image {
+            width: calc(30%);
+            .img-box {
+                margin-bottom: 2rem;
+                img {
+                    max-width: 100%;
+                    border-radius: 50%;
+                    z-index: 2;
+                    box-shadow: 0 0 1.875rem 0.438rem #4b4b4b;
+                    transition: all 0.5s ease;
+                    &:hover {
+                        transform: scale(1.6) rotate(360deg);
+                        border: 2px solid #ffffff;
+                        background-color: #ff0000;
+                    }
+                }
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -2.813rem;
+                    left: -1.875rem;
+                    width: 21.875rem;
+                    height: 21.875rem;
+                    border-radius: 50%;
+                    border: 0.188rem solid #fafafa;
+                    z-index: 0;
+                    pointer-events: none;
+                    user-select: none;
+                    animation: animate-img-circle 8s linear infinite;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    right: -41.25rem;
+                    top: 0;
+                    width: 50rem;
+                    height: 50rem;
+                    border: 0.063rem solid #fff;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    user-select: none;
+                    z-index: 0;
+                    animation: animate-img-circle-2 3s linear infinite alternate;
+                }
+            }
+            div {
+                .subtitle {
+                    font-weight: $main-font-weight * 5;
+                    line-height: 1.875rem;
+                    letter-spacing: 0.313rem;
+                    margin-bottom: 1.5rem;
+                }
+                .body {
+                    line-height: 1.875rem;
+                    margin-bottom: 1.5rem;
+                }
+                .coming-links {
+                    a {
+                        padding: 0.5rem 0;
+                        text-decoration: none;
+                        transition: color 0.5s ease;
+                        font-size: $main-font-size * 0.75;
+                        font-weight: $main-font-weight * 7;
+                        letter-spacing: 0.313rem;
+                        animation: coming-link 1s infinite;
+                        &:hover {
+                            color: $main-hover-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.cards-container {
+    padding-top: 6rem;
+    gap: 2rem;
+    .card {
+        padding: 2rem 1rem 1rem 1rem;
+        background-color: transparent;
+        border: 3px solid $main-hover-color;
+        border-radius: 0.5rem;
+        img {
+            width: 200px;
+            top: 20px;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+            &:hover {
+                transform: scale(5) translate(0, -50%);
+                z-index: 2;
+            }
+        }
+        .first-img {
+            @extend img;
+            &:hover {
+                transform: scale(5) translate(20%, -50%);
+            }
+        }
+        .last-img {
+            @extend img;
+            &:hover {
+                transform: scale(5) translate(-20%, -50%);
+            }
+        }
+        .buttons {
+            gap: 1rem;
+            margin-top: 3.5rem;
+            a {
+                position: relative;
+                background-color: $main-text-color;
+                padding: 0.75rem 1.5rem;
+                border-radius: 0.5rem;
+                transition: all 0.5s ease;
+                &:hover {
+                    background-color: $main-hover-color;
+                    animation: buttonHover 1s infinite;
+                }
+                h5 {
+                    font-size: $main-font-size;
+                    color: white;
+                }
+                .circle {
+                    width: 1rem;
+                    height: 1rem;
+                    position: absolute;
+                    border-radius: 50%;
+                    top: -0.25rem;
+                    right: -0.25rem;
+                    animation: animation-review 0.5s infinite ease-in-out;
+                    background-color: rgb(255, 191, 71);
+                    z-index: 2;
+                }
+            }
+        }
+    }
+}
